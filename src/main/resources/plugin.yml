@@ -1,0 +1,10 @@
+name: ItemPvP
+version: 1.1
+author: HotProtato
+main: net.swordvale.hotprotato.ItemPvP
+softdepend:
+  - MVdWPlaceholderAPI
+  - HolographicDisplays
+commands:
+  itempvp:
+    description: 'ItemPvP base command'

@@ -1,0 +1,100 @@
+#Must you have the weapon in your hand to damage players?
+weapon-required-to-damage-players: true
+#Should the weapon's durability be restored when used?
+restore-durability-on-hit: true
+#Must you have the weapon equipped to take damage from players?
+weapon-required-to-be-hit: true
+#Should the player's armor be restored if they had any prior to equipping the weapon?
+restore-armor: true
+#Should a player get the weapon when joining if they do not have it already?
+weapon-on-join: true
+#What slot the weapon goes in when a player without a weapon joins. Only works if weapon-on-join is true
+weapon-slot: 1
+#Should the "msg-on-weapon-receive" be sent if a player logs in for the first time?
+send-msg-on-weapon-receieve-for-newbies: false
+#Should the player's armor be restored if they quit? (If true, it will restore armor during restarts too).
+restore-armor-on-leave: true
+#Should ItemPvP prevent players from dropping items?
+prevent-item-drops: true
+#Should we prevent the "player-missing-weapon" message when a citizens NPC or player with invalid characters is hit?
+ignore-npcs: true
+#Should players just respawn instead of dying?
+respawn-insteadof-death: true
+#Cooldown before the player can get out of PvP mode set to 0 to disable
+cooldown: 10
+#Should the cooldown reset if the player is hit?
+reset-cooldown-if-damaged: true
+#Should the cooldown reset if the player has damaged another player?
+reset-cooldown-if-hit: true
+#Should the cooldown start as soon as the item is equipped?
+start-cooldown-instantly: true
+#Should we remove the cooldown if a player dies?
+remove-cooldown-on-death: true
+#Should the player's item slot be changed if they rejoin whilst holding the weapon?
+change-item-slot-on-join: true
+#Which slot should we change it to if it's true? (0 - 8)
+change-slot-to: 4
+#Should a player's killstreak be reset if they leave while their cooldown is not over?
+reset-killstreak-on-cooldown-logout: true
+#Should the player's cooldown be removed when the player logs out?
+remove-cooldown-on-logout: true
+#How many entries should the leaderboards have?
+max-leaderboard-entries: 5
+#What should the leaderboards title be?
+leaderboards-title: '&c&lKillstreak &f&lleaderboards'
+#What should an entry in the leaderboards look like?
+leaderboards-entry-format: '&e{player} &8> &c{killstreak}'
+
+#set any message to "none" to make it not send any message.
+messages:
+  #message when a player logs in and gets a weapon.
+  msg-on-weapon-receive: "&6[&cItemPvP&6] &cHere is a weapon! Scroll to it for PvP!"
+  #message when a player puts the pvp item in their hand
+  msg-on-weapon-equip: "&6[&cItemPvP&6] &cHave fun! Shift your item to something else when you are done."
+  #message sent when a player with the weapon hits a player without one.
+  player-missing-weapon: "&6[&cItemPvP&6] &cThis player does not have the weapon equipped!"
+  #message when the player gets their armor back
+  msg-on-restore: "&6[&cItemPvP&6] &AYour armor has been restored!"
+  #message when the player tries to get out of PvP while their cooldown is still on
+  cannot-bypass-cooldown: "&6[&cItemPvP&6] &cYou must wait {seconds_left} seconds before disabling PvP!"
+  #You can ignore this for now, will be useful when I support MVdWPlaceholderAPI and papi.
+  time-left-placeholder-if-0: "0s"
+  #Message when a player kills someone
+  msg-on-kill: "&6[&cItemPvP&6] &cNice kill! &aCurrent killstreak: &e{killstreak}"
+  #Generalized no permission message
+  no-permission: "&6[&cItemPvP&6] &cYou do not have permission."
+
+armor:
+  helmet:
+    ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: Cool helmet
+      lore:
+        - A really cool helmet
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 2
+  chestplate:
+    ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_CHESTPLATE
+  leggings:
+    ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_LEGGINGS
+  boots:
+    ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_BOOTS
+weapon:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: PvP Sword
+    lore:
+      - The ultimate pvp item
+    enchants:
+      SHARPNESS: 2
+
+#TODO: Support multiple weapons.
